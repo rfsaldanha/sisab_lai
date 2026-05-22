@@ -1,0 +1,687 @@
+tp_codigo,codigo,nome_ciap,fonte,versao_fonte,status_fonte,data_fonte
+CIAP,A01,Dor generalizada /múltipla,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A02,Arrepios/ calafrios,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A03,Febre,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A04,Debilidade/cansaço geral/fadiga,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A05,Sentir-se doente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A06,Desmaio/síncope,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A07,Coma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A08,Inchaço,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A09,Problemas de sudorese,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A10,Sangramento/Hemorragia NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A11,Dores torácicas NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A13,Receio/Medo do tratamento,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A16,Criança irritável,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A18,Preocupação com aparência,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A20,Pedido/discussão eutanásia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A21,Fator de risco de malignidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A23,Fator de risco NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A25,Medo de morrer/medo da morte,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A26,Medo de câncer NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A27,Medo de outra doença NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A28,Limitação funcional/incapacidade NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A29,Outros sinais/sintomas gerais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A70,Tuberculose,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A71,Sarampo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A72,Varicela,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A73,Malária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A74,Rubéola,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A75,Mononucleose infecciosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A76,Outro exantema viral,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A77,Dengue e outras doenças virais NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A78,Hanseníase e outras doenças infecciosas NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A79,Carcinomatose (localização primária desconhecida),http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A80,Lesão traumática/acidente NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A81,Politraumatismos/ferimentos múltiplos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A82,Efeito secundário de lesão traumática,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A84,Intoxicação por medicamento,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A85,Efeito adverso de fármaco dose correta,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A86,Efeito tóxico de substância não medicinal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A87,Complicações de tratamento médico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A88,Efeito adverso de fator físico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A89,Efeito da prótese,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A90,Malformação congênita NE/múltiplas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A91,Investigação com resultado anormal NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A92,Alergia/reação alérgica NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A93,Recém nascido prematuro,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A94,"Morbidade perinatal, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A95,Mortalidade perinatal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A96,Morte,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A97,Sem doença,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A98,Medicina preventiva/manutenção da saúde,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,A99,Outras doenças gerais NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B02,Gânglio linfático aumentado/doloroso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B04,Sinais/sintomas sangue,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B25,Medo de VIH/ HIV/SIDA/ AIDS,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B26,Medo de câncer no sangue/linfático,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B27,Medo de outras doenças do sangue /vasos linfáticos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B29,Outros sinais/ sintomas do sangue/ sistema linfático/ baço NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B70,Linfadenite aguda,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B71,Linfadenite crónica NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B72,Doença de Hodgkin/linfomas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B73,Leucemia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B74,Outra neoplasia maligna no sangue,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B75,Neoplasia benigna NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B76,Rotura traumática do baço,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B77,Outras lesões traumáticas do sangue/linfa/baço,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B78,Anemia hemolítica hereditária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B79,Outra malformação congênita do sangue/linfática,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B80,Anemia por deficiência de ferro,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B81,Anemia perniciosa/deficiência de folatos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B82,Outras anemias NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B83,Púrpura/defeitos de coagulação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B84,Glóbulos brancos anormais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B87,Esplenomegalia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B90,Infecção por VIH/ HIV/SIDA/ AIDS,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,B99,Outra doença do sangue/linfáticos/baço,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D01,Dor abdominal generalizada/cólicas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D02,"Dores abdominais, epigástricas",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D03,Azia/ Queimação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D04,Dor anal/retal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D05,Irritação perianal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D06,Outras dores abdominais localizadas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D07,Dispepsia/indigestão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D08,Flatulência /gases/eructações,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D09,Náusea,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D10,Vomito,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D11,Diarreia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D12,Obstipação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D13,Icterícia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D14,Hematêmese/vómito sangue,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D15,Melena,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D16,Hemorragia retal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D17,Incontinência fecal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D18,Alterações nas fezes/mov. intestinais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D19,Sinais/sintomas dos dentes/gengivas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D20,Sinais/sintomas da boca/língua/lábios,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D21,Problemas de deglutição,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D23,Hepatomegalia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D24,Massa abdominal NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D25,Distensão abdominal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D26,Medo de câncer no aparelho digestivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D27,Medo de outras doenças aparelho digestivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D29,Outros sinais/sintomas digestivos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D70,Infecção gastrointestinal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D71,Caxumba/parotidite epidêmica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D72,Hepatite viral,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D73,"Gastroenterite, presumível infecção",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D74,Neoplasia maligna do estômago,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D75,Neoplasia maligna do cólon/reto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D76,Neoplasia maligna do pâncreas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D77,Neoplasia maligna do aparelho digestivo NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D78,Neoplasia benigna do aparelho digestivo/incerta,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D79,Corpo estranho no aparelho digestivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D80,Outras lesões traumáticas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D81,Malformações congênitas do aparelho digestivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D82,Doença dos dentes/gengivas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D83,Doença da boca/língua/lábios,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D84,Doença do esôfago,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D85,Úlcera do duodeno,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D86,"Úlcera péptica, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D87,Alterações funcionais estômago,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D88,Apendicite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D89,Hérnia inguinal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D90,Hérnia de hiato /diafragmática,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D91,"Hérnia abdominal, outras",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D92,Doença diverticular intestinal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D93,Síndrome do cólon irritável,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D94,Enterite crónica/colite ulcerosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D95,Fissura anal / abcesso perianal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D96,Lombrigas /outros parasitas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D97,Doenças do fígado /NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D98,"Colecistite, colelitiase",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,D99,Outra doença do aparelho digestivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F01,Dor no olho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F02,Olho vermelho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F03,Secreção ocular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F04,Moscas volantes/pontos luminosos/escotomas/ manchas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F05,Outras perturbações visuais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F13,Sensações oculares anormais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F14,Movimentos oculares anormais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F15,Aparência anormal nos olhos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F16,Sinais/sintomas das pálpebras,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F17,Sinais/sintomas relacionados a óculos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F18,Sinais/sintomas relacionados a lentes de contato,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F27,Medo de doença ocular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F29,Outros sinais/sintomas oculares,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F70,Conjuntivite infecciosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F71,Conjuntivite alérgica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F72,Blefarite/hordéolo/calázio,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F73,Outras infecções/inflamações oculares,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F74,Neoplasia do olho/anexos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F75,Contusão/hemorragia ocular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F76,Corpo estranho ocular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F79,Outras lesões traumáticas oculares,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F80,Obstrução canal lacrimal da criança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F81,Outras malformações congênitas do olho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F82,Descolamento da retina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F83,Retinopatia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F84,Degeneração macular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F85,Ulcera da córnea,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F86,Tracoma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F91,Erro de refração,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F92,Catarata,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F93,Glaucoma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F94,Cegueira,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F95,Estrabismo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,F99,Outra doenças oculares/anexos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H01,Dor de ouvidos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H02,Problemas de audição,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H03,"Acufeno, zumbidos, ruído, assobios",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H04,Secreção no ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H05,Hemorragia no ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H13,Sensação de ouvido tapado,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H15,Preocupação com a aparência das orelhas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H27,Medo de doença do ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H29,Outros sinais/sintomas ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H70,Otite externa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H71,Otite media aguda/miringite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H72,Otite média serosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H73,Infecção da Trompa de Eustáquio,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H74,Otite media crónica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H75,Neoplasia do ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H76,Corpo estranho do ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H77,Perfuração do tímpano,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H78,Traumatismo superficial do ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H79,Outros traumatismos do ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H80,Malformações congênitas do ouvido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H81,Cerúmen no ouvido em excesso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H82,Síndrome vertiginosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H83,Otoesclerose,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H84,Presbiacusia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H85,Lesão acústica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H86,Surdez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,H99,Outra doença do ouvido/mastóide,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K01,Dor atribuída ao coração,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K02,Sensação de pressão/aperto atribuída ao coração,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K03,Dores atribuídas ao aparelho circulatório NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K04,Palpitações/percepção dos batimentos cardíacos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K05,Outras irregularidades dos batimentos cardíacos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K06,Veias proeminentes,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K07,Tornozelos inchados/edema,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K22,Fator de risco para doença cardiovascular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K24,Medo de doença cardíaca,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K25,Medo de hipertensão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K27,Medo de outra doença cardiovascular,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K29,Outros sinais/sintomas cardiovasculares,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K70,Doença infecciosa do aparelho circulatório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K71,Febre reumática/cardiopatia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K72,Neoplasia do aparelho circulatório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K73,Malformações congênitas do aparelho circulatório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K74,Doença cardíaca isquémica com angina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K75,Infarto ou Enfarte agudo miocárdio,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K76,Doença cardíaca isquémica sem angina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K77,Insuficiência cardíaca,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K78,Fibrilação/flutter auricular/ atrial,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K79,Taquicardia Paroxística,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K80,Arritmia cardíaca NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K81,Sopro cardíaco/arterial NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K82,Doença cardiopulmonar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K83,Doença valvular cardíaca NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K84,Outras doenças cardíacas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K85,Pressão arterial elevada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K86,Hipertensão sem complicações,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K87,Hipertensão com complicações,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K88,Hipotensão postural,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K89,Isquêmia/ acidente cerebral transitória(o),http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K90,Trombose/acidente vascular cerebral,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K91,Doença vascular cerebral,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K92,Aterosclerose/doença vascular periférica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K93,Embolia pulmonar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K94,Flebite/tromboflebite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K95,Veias varicosas da perna,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K96,Hemorróidas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,K99,Outras doenças do aparelho circulatório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L01,Sinais/sintomas do pescoço,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L02,Sinais/sintomas da região dorsal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L03,Sinais/sintomas da região lombar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L04,Sinais/sintomas do tórax,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L05,Sinais/sintomas da axila,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L07,Sinais/sintomas da mandíbula,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L08,Sinais/sintomas dos ombros,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L09,Sinais/sintomas dos braços,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L10,Sinais/sintomas dos cotovelos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L11,Sinais/sintomas dos punhos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L12,Sinais/sintomas das mãos e dedos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L13,Sinais/sintomas do quadril,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L14,Sinais/sintomas da coxa/perna,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L15,Sinais/sintomas do joelho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L16,Sinais/sintomas do tornozelo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L17,Sinais/sintomas do pé/dedos pé,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L18,Dores musculares,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L19,Sinais/sintomas musculares NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L20,Sinais/sintomas das articulações NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L26,Medo de câncer no aparelho músculo-esquelético,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L27,"Medo de doença no aparelho músculo-esquelético, outro",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L29,Outros sinais/sintomas do aparelho músculo-esquelético,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L70,Infecções do aparelho músculo-esquelético,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L71,Neoplasia maligna do aparelho músculo-esquelético,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L72,Fratura: rádio/cúbito,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L73,Fratura: tíbia/perônio/ fíbula,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L74,Fratura: osso da mão/pé,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L75,Fratura: fémur,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L76,Outras fraturas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L77,Entorses e distensões do tornozelo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L78,Entorses e distensões do joelho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L79,Entorses e distensões das articulações NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L80,Luxação/subluxação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L81,Traumatismos do aparelho musculoesquelético NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L82,Malformações congênitas do aparelho músculo-esquelético,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L83,Doenças ou síndromes da coluna cervical,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L84,Doenças ou síndromes da coluna sem irradiação de dor,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L85,Deformação adquirida da coluna,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L86,Síndrome vertebral com irradiação dor,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L87,Bursite/tendinite/sinovite NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L88,Artrite reumatóide/seropositiva,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L89,Osteoartrose do quadril,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L90,Osteoartrose do joelho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L91,Outras osteoartroses,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L92,Síndrome do ombro doloroso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L93,Cotovelo de tenista,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L94,Osteocondrose,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L95,Osteoporose,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L96,Lesão interna aguda do joelho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L97,Neoplasia benigna/incertas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L98,Malformação adquirida de um membro,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,L99,Outra doença do aparelho músculo-esquelético,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N01,Cefaléia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N03,Dores da face,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N04,Síndrome das pernas inquietas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N05,Formigamento/ parestesia nos dedos das mãos/pés,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N06,Outras alterações da sensibilidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N07,Convulsões/ataques,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N08,Movimentos involuntários anormais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N16,Alterações do olfato/gosto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N17,Vertigens/tonturas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N18,Paralisia/fraqueza,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N19,Perturbações da fala,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N26,Medo de câncer do sistema neurológico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N27,Medo de outras doenças neurológicas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N29,"Sinais/sintomas do sistema neurológico, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N70,Poliomielite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N71,Meningite/encefalite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N72,Tétano,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N73,Outra infecção neurológica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N74,Neoplasia maligna do sistema neurológico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N75,Neoplasia benigna do sistema neurológico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N76,Neoplasia do sistema neurológico de natureza incerta,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N79,Concussão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N80,Outras lesões cranianas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N81,Outra lesão do sistema neurológico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N85,Malformações congênitas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N86,Esclerose múltipla,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N87,Parkinsonismo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N88,Epilepsia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N89,Enxaqueca,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N90,Cefaléia de cluster,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N91,Paralisia facial/paralisia de Bell,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N92,Nevralgia do trigémio,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N93,Síndrome do túnel do carpo/ Síndrome do canal cárpico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N94,Neurite/ Nevrite/neuropatia periférica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N95,Cefaléia tensional,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,N99,Outras doenças do sistema neurológico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P01,Sensação de ansiedade/nervosismo/tensão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P02,Reação aguda ao estresse,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P03,Tristeza/ Sensação de depressão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P04,Sentir/comportar-se de forma irritável/zangada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P05,Sensação/comportamento senil,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P06,Perturbação do sono,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P07,Diminuição do desejo sexual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P08,Diminuição da satisfação sexual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P09,Preocupação com a preferência sexual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P10,Gaguejar/balbuciar/tiques,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P11,Problemas de alimentação da criança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P12,Molhar a cama/enurese,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P13,Encoprese/outros problemas de incontinência fecal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P15,Abuso crônico de álcool,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P16,Abuso agudo de álcool,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P17,Abuso do tabaco,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P18,Abuso de medicação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P19,Abuso de drogas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P20,Alterações da memória,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P22,Sinais/sintomas relacionados ao comportamento da criança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P23,Sinais/sintomas relacionados ao comportamento do adolescente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P24,Dificuldades especificas de aprendizagem,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P25,Problemas da fase de vida de adulto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P27,Medo de perturbações mentais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P29,"Sinais/sintomas psicológicos, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P70,Demência,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P71,Outras psicoses orgânicas NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P72,Esquizofrenia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P73,Psicose afetiva,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P74,Distúrbio ansioso/estado de ansiedade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P75,Somatização,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P76,Perturbações depressivas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P77,Suicídio/tentativa de suicídio,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P78,Neurastenia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P79,Fobia/perturbação compulsiva,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P80,Perturbações de personalidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P81,Perturbação hipercinética,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P82,Estresse pós traumático,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P85,Retardo/ Atraso mental,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P86,"Anorexia nervosa, bulimia",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P98,Outras psicoses NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,P99,Outras perturbações psicológicas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R01,Dor atribuída ao aparelho respiratório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R02,"Dificuldade respiratória, dispneia",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R03,Respiração ruidosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R04,Outros problemas respiratórios,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R05,Tosse,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R06,Hemorragia nasal/epistaxe,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R07,Espirro/congestão nasal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R08,Outros sinais/sintomas nasais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R09,Sinais/sintomas dos seios paranasais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R21,Sinais/sintomas da garganta,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R23,Sinais/sintomas da voz,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R24,Hemoptise,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R25,Expectoração/mucosidade anormal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R26,Medo de câncer do aparelho respiratório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R27,Medo de outras doenças respiratórias,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R29,"Sinais/sintomas do aparelho respiratório, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R71,Tosse convulsa/ pertussis,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R72,Infecção estreptocócica da orofaringe,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R73,Abcesso/furúnculo no nariz,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R74,Infecção aguda do aparelho respiratório superior (IVAS),http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R75,Sinusite crónica/aguda,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R76,Amigdalite aguda,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R77,Laringite/traqueíte aguda,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R78,Bronquite/bronquiolite aguda,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R79,Bronquite crônica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R80,Gripe,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R81,Pneumonia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R82,Pleurite/derrame pleural,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R83,Outra infecção respiratória,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R84,Neoplasia maligna dos brônquios/pulmão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R85,Outra neoplasia respiratória maligna,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R86,Neoplasia benigna respiratória,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R87,Corpo estranho nariz/laringe/brônquios,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R88,Outra lesão respiratória,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R89,Malformação congénita do aparelho respiratório,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R90,Hipertrofia das amígdalas/adenóides,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R92,Neoplasia respiratória NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R95,Doença pulmonar obstrutiva crónica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R96,Asma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R97,Rinite alérgica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R98,Síndrome de hiperventilação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,R99,Outras doenças respiratórias,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S01,Dor/sensibilidade dolorosa da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S02,Prurido,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S03,Verrugas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S04,Tumor/inchaço localizado,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S05,Tumores/inchaços generalizados,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S06,Erupção cutânea localizada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S07,Erupção cutânea generalizada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S08,Alterações da cor da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S09,Infecção dos dedos das mãos/pés,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S10,Furúnculo/carbúnculo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S11,Infecção pós-traumática da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S12,Picada ou mordedura de inseto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S13,Mordedura animal/humana,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S14,Queimadura/escaldão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S15,Corpo estranho na pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S16,Traumatismo/contusão,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S17,Abrasão/arranhão/bolhas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S18,Laceração/corte,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S19,Outra lesão cutânea,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S20,Calos/calosidades,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S21,Sinais/sintomas da textura da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S22,Sinais/sintomas das unhas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S23,Queda de cabelo/calvície,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S24,Sinais/sintomas do cabelo/couro cabeludo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S26,Medo de câncer de pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S27,Medo de outra doença da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S29,"Sinais/sintomas da pele, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S70,Herpes zoster,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S71,Herpes simples,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S72,Escabiose/outras acaríases,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S73,Pediculose/outras infecções da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S74,Dermatofitose,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S75,Monilíase oral/candidíase na pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S76,Outras infecções da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S77,Neoplasias malignas da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S78,Lipoma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S79,Neoplasia cutânea benigna/incerta,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S80,Ceratose/ Queratose solar/queimadura solar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S81,Hemangioma/linfangioma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S82,Nevos/sinais da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S83,"Lesões da pele congênitas, outras",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S84,Impetigo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S85,Cisto pilonidal/fistula,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S86,Dermatite seborreica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S87,Dermatite/eczema atópico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S88,Dermatite de contato/alérgica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S89,Dermatite das fraldas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S90,Pitiríase rosada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S91,Psoríase,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S92,Doença das glândulas sudoríparas,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S93,Cisto sebáceo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S94,Unha encravada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S95,Molusco contagioso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S96,Acne,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S97,Úlcera crónica da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S98,Urticária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,S99,Outras doenças da pele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T01,Sede excessiva,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T02,Apetite excessivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T03,Perda de apetite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T04,Problemas alimentares de lactente/criança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T05,Problemas alimentares do adulto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T07,Aumento de peso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T08,Perda de peso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T10,Atraso do crescimento,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T11,Desidratação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T26,Medo de câncer do sistema endócrino,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T27,Medo de outra doença endócrina/metabólica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T29,"Sinais/sintomas endocrinológicos/metabolicos/nutricionais, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T70,Infecção endócrina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T71,Neoplasia maligna da tiróide,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T72,Neoplasia benigna da tiróide,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T73,Outra neoplasia endócrina NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T78,Cisto do canal tiroglosso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T80,Malformação congénita endócrina/metabólica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T81,Bócio,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T82,Obesidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T83,Excesso de peso,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T85,Hipertiroidismo/tireotoxicose,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T86,Hipotiroidismo/mixedema,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T87,Hipoglicemia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T89,Diabetes insulino-dependente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T90,Diabetes não insulino-dependente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T91,Deficiência vitamínica/nutricional,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T92,Gota,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T93,Alteração no metabolismo dos lípidos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,T99,Outras doenças endocrinológica/metabólica/nutricionais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U01,Disúria/micção dolorosa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U02,Micção frequente/urgência urinária/ polaciúria,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U04,Incontinência urinária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U05,Outros problemas com a micção,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U06,Hematúria,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U07,Outros sinais/sintomas urinários,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U08,Retenção urinária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U13,"Sinais/sintomas da bexiga, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U14,Sinais/sintomas dos rins,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U26,Medo de câncer no aparelho urinário,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U27,Medo de outra doença urinária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U29,"Sinais/sintomas aparelho urinário, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U70,Pielonefrite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U71,Cistite/outra infecção urinária,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U72,Uretrite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U75,Neoplasia maligna do rim,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U76,Neoplasia benigna do rim,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U77,"Neoplasia maligna do aparelho urinário, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U78,Neoplasia benigna do aparelho urinário,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U79,Neoplasia do aparelho urinário NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U80,Lesões traumáticas do aparelho urinário,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U85,Malformação congénita do aparelho urinário,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U88,Glomerulonefrite/ sindrome nefrótica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U90,Albuminúria/proteinúria ortostática,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U95,Cálculo urinário,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U98,Análise de urina anormal NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,U99,Outras doenças urinárias,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W01,Questão sobre gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W02,Medo de estar grávida,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W03,Hemorragia antes do parto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W05,Vómitos/náuseas durante a gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W10,Contracepção pós-coital,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W11,Contracepção oral,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W12,Contracepção intra-uterina/ Dispositivo Intrauterino/ DIU,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W13,Esterilização,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W14,Contracepção/outros,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W15,Infertilidade/subfertildade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W17,Hemorragia pós-parto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W18,Sinais/sintomas pós-parto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W19,Sinais/sintomas da mama/lactação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W21,Preocupação com a imagem corporal na gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W27,Medo de complicações na gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W29,"Sinais/sintomas da gravidez, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W70,Sepsis/infecção puerperal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W71,Infecções que complicam a gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W72,Neoplasia maligna relacionada com gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W73,Neoplasia benigna/incerta relacionada com a gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W75,Lesões traumáticas que complicam a gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W76,Malformação congénita que complica a gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W78,Gravidez,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W79,Gravidez não desejada,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W80,Gravidez ectópica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W81,Toxemia gravídica/ DHEG,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W82,Aborto espontâneo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W83,Aborto provocado,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W84,Gravidez de alto risco,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W85,Diabetes gestacional,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W90,Parto sem complicações de nascido vivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W91,Parto sem complicações de natimorto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W92,Parto com complicações de nascido vivo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W93,Parto com complicações de natimorto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W94,Mastite puerperal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W95,Outros problemas da mama durante gravidez/puerpério,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W96,Outras complicações do puerpério,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,W99,Outros problemas da gravidez/parto,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X01,Dor genital,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X02,Dores menstruais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X03,Dores intermenstruais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X04,Relação sexual dolorosa na mulher,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X05,Menstruação escassa/ausente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X06,Menstruação excessiva,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X07,Menstruação irregular/frequente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X08,Hemorragia intermenstrual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X09,Sinais/sintomas pré-menstruais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X10,Desejo de alterar a data menstruação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X11,Sinais/sintomas da menopausa/ climatério,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X12,Hemorragia pós-menopausa,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X13,Hemorragia pós-coital,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X14,Secreção vaginal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X15,Sinais/sintomas da vagina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X16,Sinais/sintomas da vulva,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X17,Sinais/sintomas da pélvis feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X18,Dor na mama feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X19,Tumor ou nódulo na mama feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X20,Sinais/sintomas do mamilo da mulher,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X21,"Sinais/sintomas da mama feminina, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X22,Preocupação com a aparência da mama feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X23,Medo de doença de transmissão sexual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X24,Medo de disfunção sexual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X25,Medo de câncer genital,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X26,Medo de câncer na mama,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X27,Medo de outra doença genital/mama,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X29,"Sinais/sintomas do aparelho genital feminino, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X70,Sífilis feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X71,Gonorréia feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X72,Candidíase genital feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X73,Tricomoníase genital feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X74,Doença inflamatória pélvica,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X75,Neoplasia maligna do colo,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X76,Neoplasia maligna da mama feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X77,"Neoplasia maligna genital feminina, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X78,Fibromioma uterino,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X79,Neoplasia benigna da mama feminina/ fibroadenoma,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X80,Neoplasia benigna genital,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X81,"Neoplasia genital feminina, outra/NE",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X82,Lesão traumática genital feminina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X83,Malformações congênitas genitais,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X84,Vaginite/vulvite NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X85,Doença do colo NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X86,Esfregaço de Papanicolau/colpocitologia oncótica anormal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X87,Prolapso utero-vaginal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X88,Doença fibrocística da mama,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X89,Síndrome da tensão pré-menstrual,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X90,Herpes genital feminino,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X91,Condiloma acuminado feminino,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X92,Infecção por clamídia,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,X99,"Doença genital feminina, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y01,Dor no pênis,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y02,Dor no escroto/testículos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y03,Secreção uretral,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y04,"Sinais/sintomas do pênis, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y05,"Sinais/sintomas do escroto/testículos, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y06,Sinais/sintomas da próstata,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y07,Impotência NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y08,"Sinais/sintomas da função sexual masculina, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y10,Infertilidade/subfertildade masculina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y13,Esterilização masculina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y14,"Planejamento familiar, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y16,Sinais/sintomas da mama masculina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y24,Medo de disfunção sexual masculina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y25,Medo de doença sexualmente transmissível,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y26,Medo de câncer genital masculino,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y27,"Medo de doença genital masculina, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y29,"Sinais/sintomas, outros",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y70,Sífilis masculina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y71,Gonorréia masculina,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y72,Herpes genital,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y73,Prostatite/vesiculite seminal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y74,Orquite/epididimite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y75,Balanite/ Balanopostite,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y76,Condiloma acuminado,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y77,Neoplasia maligna da próstata,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y78,"Neoplasia maligna genital masculina, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y79,Neoplasia benigna genital masculina NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y80,"Traumatismo genital masculino, outro",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y81,Fimose/prepúcio redundante,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y82,Hipospádias,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y83,Testículo não descido/ Criptorquidia/ Testículo ectópico,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y84,"Malformação genital congénita masculina, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y85,Hipertrofia benigna da próstata/ hiperplasia prostática benigna,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y86,Hidrocele,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Y99,"Doença genital masculina, outra",http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z01,Pobreza/problemas econômicos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z02,Problemas relacionados a água/alimentação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z03,Problemas de habitação/vizinhança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z04,Problema socio-cultural,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z05,Problemas com condições de trabalho,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z06,Problemas de desemprego,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z07,Problemas relacionados com educação,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z08,Problema relacionado com sistema de segurança social,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z09,Problema de ordem legal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z10,Problema relacionado com sistema de saúde,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z11,Problema relacionado com estar doente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z12,Problema de relacionamento com parceiro/ conjugal,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z13,Problema comportamental do parceiro/  companheiro,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z14,Problema por doença do parceiro/ companheiro,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z15,Perda ou falecimento do parceiro/ companheiro,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z16,Problema de relacionamento com criança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z18,Problema com criança doente,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z19,Perda ou falecimento de criança,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z20,Problema de relacionamento com familiares,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z21,Problema comportamental de familiar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z22,Problema por doença familiar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z23,Perda/falecimento de familiar,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z24,Problema de relacionamento com amigos,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z25,Ato ou acontecimento violento,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z27,Medo de problema social,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z28,Limitação funcional/incapacidade,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
+CIAP,Z29,Problema social NE,http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2,1.0.3,draft,2020-03-11
