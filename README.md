@@ -13,10 +13,10 @@ data/
   lai/
     pedido_*/
       csv/
-        *.csv
+        *.csv.zip
 ```
 
-Arquivos `.zip` são ignorados. O script procura apenas arquivos `.csv` sob `data/lai/`.
+O script também aceita CSVs ainda descompactados (`*.csv`), mas o formato recomendado é um ZIP por CSV (`*.csv.zip`). Arquivos ZIP originais na raiz do pedido são ignorados; apenas `data/lai/pedido_*/csv/*.csv` e `data/lai/pedido_*/csv/*.csv.zip` entram no processamento.
 
 ## Como Rodar
 
@@ -46,7 +46,7 @@ O script usa os pacotes:
 
 ## O Que o Script Faz
 
-1. Localiza todos os CSVs em `data/lai/*/csv/`.
+1. Localiza CSVs descompactados ou compactados como `.csv.zip` em `data/lai/*/csv/`.
 2. Infere a competência (`YYYYMM`) a partir do nome do arquivo.
 3. Detecta o cabeçalho real após eventuais textos de preâmbulo do SQL*Plus.
 4. Valida arquivos vazios, inválidos, sem cabeçalho reconhecido ou sem linhas de dados.
@@ -61,17 +61,17 @@ O script usa os pacotes:
 Os arquivos de dados são gravados em:
 
 ```text
-data/export/data/sisab_saude_ciap_cid_YYYY.csv
+data/export/data/sisab_saude_ciap_cid_YYYY.csv.zip
 data/export/data/sisab_saude_ciap_cid_YYYY.parquet
 ```
 
 Os relatórios são gravados em:
 
 ```text
-data/export/reports/sisab_lai_file_inventory.csv
-data/export/reports/sisab_lai_selected_files.csv
-data/export/reports/sisab_lai_invalid_files.csv
-data/export/reports/sisab_lai_missing_months.csv
+data/export/reports/sisab_lai_file_inventory.csv.zip
+data/export/reports/sisab_lai_selected_files.csv.zip
+data/export/reports/sisab_lai_invalid_files.csv.zip
+data/export/reports/sisab_lai_missing_months.csv.zip
 ```
 
 O cache de inspeção é gravado em:
@@ -112,7 +112,7 @@ Para anexar os nomes completos das rubricas CIAP-2:
 library(dplyr)
 library(readr)
 
-dados <- read_csv("data/export/data/sisab_saude_ciap_cid_2025.csv")
+dados <- read_csv("data/export/data/sisab_saude_ciap_cid_2025.csv.zip")
 ciap <- read_csv("reference/ciap2_codes.csv")
 
 dados_com_ciap <- dados |>
@@ -139,7 +139,7 @@ Os demais arquivos válidos aparecem como `superseded` nos relatórios.
 ## Fluxo Mensal
 
 1. Crie uma nova pasta para o pedido LAI em `data/lai/`.
-2. Descompacte os CSVs dentro de `data/lai/pedido_*/csv/`.
+2. Coloque os CSVs dentro de `data/lai/pedido_*/csv/`, preferencialmente compactados como `arquivo.csv.zip`.
 3. Rode `Rscript data_import.R`.
 4. Revise os relatórios em `data/export/reports/`.
 5. Use os arquivos anuais em `data/export/data/`.

@@ -24,6 +24,10 @@ data_file_prefix <- "sisab_saude_ciap_cid"
 
 dir_create(c(data_output_dir, reports_output_dir, cache_output_dir))
 
+csv_work_dir <- tempfile("sisab_lai_csv_")
+dir_create(csv_work_dir)
+on.exit(try(dir_delete(csv_work_dir), silent = TRUE), add = TRUE)
+
 # Known source schemas observed in the LAI deliveries.
 expected_old <- c(
   "NU_ANO_COMPETENCIA",
@@ -49,11 +53,74 @@ sql_quote <- function(x) {
   paste0("'", gsub("'", "''", x, fixed = TRUE), "'")
 }
 
+is_zip_path <- function(path) {
+  str_detect(str_to_lower(as.character(path)), "[.]zip$")
+}
+
+csv_name_from_path <- function(path) {
+  str_remove(path_file(as.character(path)), "[.]zip$")
+}
+
+# Source CSVs may be stored as .csv.zip to save disk space. When a script step
+# needs the CSV bytes, extract just that member to a temporary working folder.
+materialize_csv <- function(path) {
+  path <- as.character(path)
+  if (!is_zip_path(path)) {
+    return(path)
+  }
+
+  expected_name <- csv_name_from_path(path)
+  safe_prefix <- str_replace_all(path, "[^A-Za-z0-9._-]+", "_")
+  target <- fs::path(csv_work_dir, paste0(safe_prefix, "__", expected_name))
+  if (file_exists(target)) {
+    return(target)
+  }
+
+  members <- tryCatch(
+    utils::unzip(path, list = TRUE),
+    error = function(e) stop("Could not list ZIP archive: ", path, call. = FALSE)
+  )
+  csv_members <- members$Name[str_detect(members$Name, "[.]csv$")]
+  member <- csv_members[path_file(csv_members) == expected_name][1]
+  if (is.na(member)) {
+    member <- csv_members[1]
+  }
+  if (is.na(member)) {
+    stop("No CSV member found inside ZIP archive: ", path, call. = FALSE)
+  }
+
+  extracted <- utils::unzip(path, files = member, exdir = csv_work_dir, junkpaths = TRUE, overwrite = TRUE)
+  extracted <- extracted[1]
+  if (!identical(path_norm(extracted), path_norm(target))) {
+    if (file_exists(target)) {
+      file_delete(target)
+    }
+    file_move(extracted, target)
+  }
+  target
+}
+
+zip_csv_file <- function(csv_path) {
+  csv_path <- as.character(csv_path)
+  zip_path <- paste0(csv_path, ".zip")
+  if (file_exists(zip_path)) {
+    file_delete(zip_path)
+  }
+
+  status <- system2("zip", c("-9", "-j", zip_path, csv_path), stdout = FALSE, stderr = FALSE)
+  if (!identical(status, 0L)) {
+    stop("Could not ZIP CSV file: ", csv_path, call. = FALSE)
+  }
+  file_delete(csv_path)
+  zip_path
+}
+
 # SISAB data files are preceded by SQL*Plus command output. This finds the real
 # CSV header and identifies which LAI schema the file uses.
 detect_header <- function(path) {
+  csv_path <- materialize_csv(path)
   preview <- tryCatch(
-    readLines(path, n = 100, warn = FALSE, encoding = "UTF-8"),
+    readLines(csv_path, n = 100, warn = FALSE, encoding = "UTF-8"),
     error = function(e) character()
   )
 
@@ -100,8 +167,9 @@ detect_header <- function(path) {
 # Fast path: count all lines and subtract the SQL*Plus preamble/header/footer.
 # Fallback: scan data-looking rows if fast line counting fails for any file.
 count_data_rows <- function(path, header_line) {
+  csv_path <- materialize_csv(path)
   total_lines <- tryCatch(
-    R.utils::countLines(path),
+    R.utils::countLines(csv_path),
     error = function(e) NA_integer_
   )
 
@@ -122,7 +190,7 @@ count_data_rows <- function(path, header_line) {
   tryCatch(
     {
       read_lines_chunked(
-        file = path,
+        file = csv_path,
         callback = callback,
         chunk_size = 100000,
         progress = FALSE
@@ -137,8 +205,9 @@ count_data_rows <- function(path, header_line) {
 # final tidy export shape. Provenance stays in the data, but source_schema is
 # only kept in the reports/selection metadata.
 read_sisab_file <- function(path, header_line, schema, source_request, source_file) {
+  csv_path <- materialize_csv(path)
   raw <- suppressWarnings(read_csv(
-    file = path,
+    file = csv_path,
     skip = header_line - 1L,
     col_types = cols(.default = col_character()),
     show_col_types = FALSE,
@@ -227,12 +296,13 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
 }
 
 # Discover the current LAI CSV universe. New monthly requests can be added as
-# new data/lai/pedido_*/csv folders without changing the script.
+# new data/lai/pedido_*/csv folders without changing the script. CSVs can be
+# stored either plain or as one-file .csv.zip archives.
 csv_files <- dir_ls(
   path = input_dir,
   recurse = TRUE,
   type = "file",
-  regexp = "[.]csv$"
+  regexp = "/csv/.*[.]csv([.]zip)?$"
 )
 
 if (length(csv_files) == 0) {
@@ -250,7 +320,7 @@ cli_alert_info("Found {.strong {length(csv_files)}} CSV files.")
 inventory <- tibble(path = as.character(csv_files)) |>
   mutate(
     source_request = str_extract(path, "pedido_[^/]+"),
-    source_file = path_file(path),
+    source_file = csv_name_from_path(path),
     competencia = str_extract(source_file, "\\d{6}"),
     ano_competencia = parse_integer(substr(competencia, 1, 4)),
     mes_competencia = parse_integer(substr(competencia, 5, 6)),
@@ -469,19 +539,28 @@ inventory_out <- inventory |>
 cli_h2("Writing diagnostics")
 # Reports preserve source_schema and selection metadata even though the final
 # yearly data exports omit source_schema.
-write_csv(inventory_out, path(reports_output_dir, "sisab_lai_file_inventory.csv"))
-cli_alert_success("Wrote {.path {path(reports_output_dir, 'sisab_lai_file_inventory.csv')}}")
-write_csv(selected_paths, path(reports_output_dir, "sisab_lai_selected_files.csv"))
-cli_alert_success("Wrote {.path {path(reports_output_dir, 'sisab_lai_selected_files.csv')}}")
-write_csv(inventory |> filter(!valid), path(reports_output_dir, "sisab_lai_invalid_files.csv"))
-cli_alert_success("Wrote {.path {path(reports_output_dir, 'sisab_lai_invalid_files.csv')}}")
-write_csv(missing_months, path(reports_output_dir, "sisab_lai_missing_months.csv"))
-cli_alert_success("Wrote {.path {path(reports_output_dir, 'sisab_lai_missing_months.csv')}}")
+inventory_report_path <- path(reports_output_dir, "sisab_lai_file_inventory.csv")
+selected_report_path <- path(reports_output_dir, "sisab_lai_selected_files.csv")
+invalid_report_path <- path(reports_output_dir, "sisab_lai_invalid_files.csv")
+missing_report_path <- path(reports_output_dir, "sisab_lai_missing_months.csv")
+
+write_csv(inventory_out, inventory_report_path)
+inventory_report_zip <- zip_csv_file(inventory_report_path)
+cli_alert_success("Wrote {.path {inventory_report_zip}}")
+write_csv(selected_paths, selected_report_path)
+selected_report_zip <- zip_csv_file(selected_report_path)
+cli_alert_success("Wrote {.path {selected_report_zip}}")
+write_csv(inventory |> filter(!valid), invalid_report_path)
+invalid_report_zip <- zip_csv_file(invalid_report_path)
+cli_alert_success("Wrote {.path {invalid_report_zip}}")
+write_csv(missing_months, missing_report_path)
+missing_report_zip <- zip_csv_file(missing_report_path)
+cli_alert_success("Wrote {.path {missing_report_zip}}")
 
 legacy_root_files <- dir_ls(
   output_dir,
   type = "file",
-  regexp = "sisab_lai_.*[.](csv|parquet)$",
+  regexp = "sisab_lai_.*[.](csv([.]zip)?|parquet)$",
   fail = FALSE
 )
 if (length(legacy_root_files) > 0) {
@@ -489,7 +568,7 @@ if (length(legacy_root_files) > 0) {
   file_delete(legacy_root_files)
 }
 
-yearly_csv <- dir_ls(data_output_dir, regexp = "(sisab_lai|sisab_saude_ciap_cid)_\\d{4}[.]csv$", fail = FALSE)
+yearly_csv <- dir_ls(data_output_dir, regexp = "(sisab_lai|sisab_saude_ciap_cid)_\\d{4}[.]csv([.]zip)?$", fail = FALSE)
 yearly_parquet <- dir_ls(data_output_dir, regexp = "(sisab_lai|sisab_saude_ciap_cid)_\\d{4}[.]parquet$", fail = FALSE)
 if (length(c(yearly_csv, yearly_parquet)) > 0) {
   cli_alert_info("Removing {length(c(yearly_csv, yearly_parquet))} previous yearly export files.")
@@ -561,6 +640,7 @@ for (year in sort(unique(selected_paths$ano_competencia))) {
       " (FORMAT CSV, HEADER TRUE)"
     )
   )
+  csv_zip_path <- zip_csv_file(csv_path)
   cli_alert_info("Year {.strong {year}}: writing Parquet export.")
   dbExecute(
     con,
@@ -570,7 +650,7 @@ for (year in sort(unique(selected_paths$ano_competencia))) {
       " (FORMAT PARQUET)"
     )
   )
-  cli_alert_success("Year {.strong {year}} complete: {.path {csv_path}} and {.path {parquet_path}}")
+  cli_alert_success("Year {.strong {year}} complete: {.path {csv_zip_path}} and {.path {parquet_path}}")
 }
 
 cli_h2("Done")

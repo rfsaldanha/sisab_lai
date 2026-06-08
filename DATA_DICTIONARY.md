@@ -6,15 +6,15 @@ Este dicionário descreve os arquivos anuais produzidos pelo script `data_import
 
 Os arquivos de dados são gravados em:
 
-- `data/export/data/sisab_saude_ciap_cid_YYYY.csv`
+- `data/export/data/sisab_saude_ciap_cid_YYYY.csv.zip`
 - `data/export/data/sisab_saude_ciap_cid_YYYY.parquet`
 
 Os arquivos de diagnóstico e auditoria são gravados em:
 
-- `data/export/reports/sisab_lai_file_inventory.csv`
-- `data/export/reports/sisab_lai_selected_files.csv`
-- `data/export/reports/sisab_lai_invalid_files.csv`
-- `data/export/reports/sisab_lai_missing_months.csv`
+- `data/export/reports/sisab_lai_file_inventory.csv.zip`
+- `data/export/reports/sisab_lai_selected_files.csv.zip`
+- `data/export/reports/sisab_lai_invalid_files.csv.zip`
+- `data/export/reports/sisab_lai_missing_months.csv.zip`
 
 O cache de inspeção dos arquivos é gravado em:
 
