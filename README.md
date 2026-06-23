@@ -16,7 +16,7 @@ data/
         *.csv.zip
 ```
 
-O script também aceita CSVs ainda descompactados (`*.csv`), mas o formato recomendado é um ZIP por CSV (`*.csv.zip`). Arquivos ZIP originais na raiz do pedido são ignorados; apenas `data/lai/pedido_*/csv/*.csv` e `data/lai/pedido_*/csv/*.csv.zip` entram no processamento.
+O script também aceita CSVs ainda descompactados (`*.csv`) e ZIPs genéricos (`*.zip`) com um CSV dentro, mas o formato recomendado é um ZIP por CSV (`*.csv.zip`). Arquivos ZIP originais na raiz do pedido são ignorados; apenas arquivos dentro de `data/lai/pedido_*/csv/` entram no processamento.
 
 ## Como Rodar
 
@@ -46,7 +46,7 @@ O script usa os pacotes:
 
 ## O Que o Script Faz
 
-1. Localiza CSVs descompactados ou compactados como `.csv.zip` em `data/lai/*/csv/`.
+1. Localiza CSVs descompactados, compactados como `.csv.zip` ou ZIPs genéricos com CSV dentro em `data/lai/*/csv/`.
 2. Infere a competência (`YYYYMM`) a partir do nome do arquivo.
 3. Detecta o cabeçalho real após eventuais textos de preâmbulo do SQL*Plus.
 4. Valida arquivos vazios, inválidos, sem cabeçalho reconhecido ou sem linhas de dados.
@@ -139,7 +139,7 @@ Os demais arquivos válidos aparecem como `superseded` nos relatórios.
 ## Fluxo Mensal
 
 1. Crie uma nova pasta para o pedido LAI em `data/lai/`.
-2. Coloque os CSVs dentro de `data/lai/pedido_*/csv/`, preferencialmente compactados como `arquivo.csv.zip`.
+2. Coloque os CSVs dentro de `data/lai/pedido_*/csv/`, preferencialmente compactados como `arquivo.csv.zip`; arquivos `arquivo.zip` com CSV interno também são aceitos.
 3. Rode `Rscript data_import.R`.
 4. Revise os relatórios em `data/export/reports/`.
 5. Use os arquivos anuais em `data/export/data/`.

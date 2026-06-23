@@ -297,12 +297,13 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
 
 # Discover the current LAI CSV universe. New monthly requests can be added as
 # new data/lai/pedido_*/csv folders without changing the script. CSVs can be
-# stored either plain or as one-file .csv.zip archives.
+# stored either plain, as .csv.zip archives, or as generic .zip archives with a
+# CSV member.
 csv_files <- dir_ls(
   path = input_dir,
   recurse = TRUE,
   type = "file",
-  regexp = "/csv/.*[.]csv([.]zip)?$"
+  regexp = "/csv/.*([.]csv([.]zip)?|[.]zip)$"
 )
 
 if (length(csv_files) == 0) {
