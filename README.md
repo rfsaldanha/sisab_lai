@@ -26,7 +26,15 @@ No diretório raiz do projeto:
 Rscript data_import.R
 ```
 
-O script faz uma reconstrução completa dos arquivos anuais a cada execução. Isso mantém o processo simples, auditável e permite que um pedido LAI mais novo substitua automaticamente arquivos antigos, incompletos ou corrompidos.
+Por padrão, o script atualiza os relatórios de diagnóstico completos, mas reexporta apenas os anos em que a seleção mensal mudou ou em que algum arquivo anual está ausente. Como as saídas são anuais, uma adição ou substituição mensal reprocessa o respectivo ano inteiro.
+
+Para forçar a reconstrução completa de todos os anos:
+
+```bash
+Rscript data_import.R --full
+```
+
+Também é possível usar `SISAB_FULL_REBUILD=1 Rscript data_import.R`.
 
 ## Dependências R
 

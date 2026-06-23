@@ -22,6 +22,13 @@ cache_output_dir <- path(output_dir, "cache")
 file_cache_path <- path(cache_output_dir, "sisab_lai_file_cache.rds")
 data_file_prefix <- "sisab_saude_ciap_cid"
 
+is_truthy <- function(x) {
+  str_to_lower(x) %in% c("1", "true", "t", "yes", "y")
+}
+
+args <- commandArgs(trailingOnly = TRUE)
+full_rebuild <- "--full" %in% args || is_truthy(Sys.getenv("SISAB_FULL_REBUILD", ""))
+
 dir_create(c(data_output_dir, reports_output_dir, cache_output_dir))
 
 csv_work_dir <- tempfile("sisab_lai_csv_")
@@ -493,6 +500,8 @@ selected_paths <- selected_files |>
     header_line,
     data_rows,
     file_size,
+    file_mtime,
+    cache_key,
     selection_status
   )
 
@@ -537,14 +546,88 @@ inventory_out <- inventory |>
     )
   )
 
-cli_h2("Writing diagnostics")
 # Reports preserve source_schema and selection metadata even though the final
-# yearly data exports omit source_schema.
+# yearly data exports omit source_schema. The previous selected-files report is
+# also the baseline for deciding which annual exports need rebuilding.
 inventory_report_path <- path(reports_output_dir, "sisab_lai_file_inventory.csv")
 selected_report_path <- path(reports_output_dir, "sisab_lai_selected_files.csv")
 invalid_report_path <- path(reports_output_dir, "sisab_lai_invalid_files.csv")
 missing_report_path <- path(reports_output_dir, "sisab_lai_missing_months.csv")
 
+previous_selected_paths <- if (file_exists(paste0(selected_report_path, ".zip"))) {
+  suppressMessages(read_csv(paste0(selected_report_path, ".zip"), show_col_types = FALSE))
+} else {
+  tibble()
+}
+
+current_years <- sort(unique(selected_paths$ano_competencia))
+previous_years <- if ("ano_competencia" %in% names(previous_selected_paths)) {
+  sort(unique(previous_selected_paths$ano_competencia))
+} else {
+  integer()
+}
+
+selected_compare_columns <- c(
+  "competencia",
+  "ano_competencia",
+  "path",
+  "source_schema",
+  "header_line",
+  "data_rows",
+  "file_size"
+)
+selected_compare_columns <- intersect(
+  selected_compare_columns,
+  intersect(names(selected_paths), names(previous_selected_paths))
+)
+
+if (nrow(previous_selected_paths) == 0 || length(selected_compare_columns) == 0) {
+  changed_current_selection <- selected_paths
+  changed_previous_selection <- previous_selected_paths
+} else {
+  current_selected_compare <- selected_paths |>
+    mutate(across(all_of(selected_compare_columns), as.character))
+  previous_selected_compare <- previous_selected_paths |>
+    mutate(across(all_of(selected_compare_columns), as.character))
+
+  changed_current_selection <- anti_join(
+    current_selected_compare,
+    previous_selected_compare,
+    by = selected_compare_columns
+  )
+  changed_previous_selection <- anti_join(
+    previous_selected_compare,
+    current_selected_compare,
+    by = selected_compare_columns
+  )
+}
+
+changed_years <- sort(unique(as.integer(c(
+  changed_current_selection$ano_competencia,
+  changed_previous_selection$ano_competencia
+))))
+removed_years <- setdiff(previous_years, current_years)
+missing_output_years <- current_years[
+  !file_exists(path(data_output_dir, paste0(data_file_prefix, "_", current_years, ".csv.zip"))) |
+    !file_exists(path(data_output_dir, paste0(data_file_prefix, "_", current_years, ".parquet")))
+]
+
+years_to_rebuild <- if (full_rebuild) {
+  current_years
+} else {
+  sort(unique(c(changed_years, missing_output_years)))
+}
+years_to_delete <- sort(unique(c(years_to_rebuild, removed_years)))
+
+cli_h2("Planning exports")
+if (full_rebuild) {
+  cli_alert_info("Full rebuild requested with --full or SISAB_FULL_REBUILD.")
+}
+cli_alert_info("Years with changed selected inputs: {.strong {length(changed_years)}}")
+cli_alert_info("Years with missing output files: {.strong {length(missing_output_years)}}")
+cli_alert_info("Years queued for rebuild: {.strong {length(years_to_rebuild)}}")
+
+cli_h2("Writing diagnostics")
 write_csv(inventory_out, inventory_report_path)
 inventory_report_zip <- zip_csv_file(inventory_report_path)
 cli_alert_success("Wrote {.path {inventory_report_zip}}")
@@ -569,89 +652,103 @@ if (length(legacy_root_files) > 0) {
   file_delete(legacy_root_files)
 }
 
-yearly_csv <- dir_ls(data_output_dir, regexp = "(sisab_lai|sisab_saude_ciap_cid)_\\d{4}[.]csv([.]zip)?$", fail = FALSE)
-yearly_parquet <- dir_ls(data_output_dir, regexp = "(sisab_lai|sisab_saude_ciap_cid)_\\d{4}[.]parquet$", fail = FALSE)
-if (length(c(yearly_csv, yearly_parquet)) > 0) {
-  cli_alert_info("Removing {length(c(yearly_csv, yearly_parquet))} previous yearly export files.")
+if (length(years_to_delete) > 0) {
+  year_pattern <- paste(years_to_delete, collapse = "|")
+  yearly_outputs_to_delete <- dir_ls(
+    data_output_dir,
+    regexp = paste0(
+      "(sisab_lai|",
+      data_file_prefix,
+      ")_(",
+      year_pattern,
+      ")[.](csv([.]zip)?|parquet)$"
+    ),
+    fail = FALSE
+  )
+  if (length(yearly_outputs_to_delete) > 0) {
+    cli_alert_info("Removing {length(yearly_outputs_to_delete)} stale yearly export files.")
+    file_delete(yearly_outputs_to_delete)
+  }
 }
-file_delete(c(yearly_csv, yearly_parquet))
-
-# DuckDB is used as a temporary writer so each yearly CSV/Parquet pair is
-# produced consistently without keeping all years in memory at once.
-duckdb_path <- tempfile("sisab_lai_build_", fileext = ".duckdb")
-
-con <- dbConnect(duckdb(), dbdir = duckdb_path)
-on.exit({
-  try(dbDisconnect(con, shutdown = TRUE), silent = TRUE)
-  try(file_delete(duckdb_path), silent = TRUE)
-}, add = TRUE)
 
 cli_h2("Exporting yearly files")
-# Rebuild every yearly file from the selected monthly sources. This full rebuild
-# keeps corrected historical LAI files and overlap choices reproducible.
-for (year in sort(unique(selected_paths$ano_competencia))) {
-  dbExecute(con, "DROP TABLE IF EXISTS sisab_year")
+if (length(years_to_rebuild) == 0) {
+  cli_alert_success("No yearly exports need rebuilding.")
+} else {
+  # DuckDB is used as a temporary writer so each yearly CSV/Parquet pair is
+  # produced consistently without keeping all years in memory at once.
+  duckdb_path <- tempfile("sisab_lai_build_", fileext = ".duckdb")
 
-  year_files <- selected_paths |>
-    filter(ano_competencia == year) |>
-    arrange(competencia)
+  con <- dbConnect(duckdb(), dbdir = duckdb_path)
+  on.exit({
+    try(dbDisconnect(con, shutdown = TRUE), silent = TRUE)
+    try(file_delete(duckdb_path), silent = TRUE)
+  }, add = TRUE)
 
-  cli_alert_info("Year {.strong {year}}: importing {nrow(year_files)} selected monthly files.")
-  wrote_any <- FALSE
-  for (i in cli_progress_along(seq_len(nrow(year_files)), paste("Importing", year))) {
-    cli_progress_message("Reading {year_files$competencia[[i]]}: {year_files$source_file[[i]]}")
-    month_data <- read_sisab_file(
-      path = year_files$path[[i]],
-      header_line = year_files$header_line[[i]],
-      schema = year_files$source_schema[[i]],
-      source_request = year_files$source_request[[i]],
-      source_file = year_files$source_file[[i]]
-    ) |>
-      filter(competencia == year_files$competencia[[i]])
+  for (year in years_to_rebuild) {
+    dbExecute(con, "DROP TABLE IF EXISTS sisab_year")
 
-    if (nrow(month_data) == 0) {
-      warning("Selected file produced zero rows after normalization: ", year_files$path[[i]], call. = FALSE)
+    year_files <- selected_paths |>
+      filter(ano_competencia == year) |>
+      arrange(competencia)
+
+    cli_alert_info("Year {.strong {year}}: importing {nrow(year_files)} selected monthly files.")
+    wrote_any <- FALSE
+    for (i in cli_progress_along(seq_len(nrow(year_files)), paste("Importing", year))) {
+      cli_progress_message("Reading {year_files$competencia[[i]]}: {year_files$source_file[[i]]}")
+      month_data <- read_sisab_file(
+        path = year_files$path[[i]],
+        header_line = year_files$header_line[[i]],
+        schema = year_files$source_schema[[i]],
+        source_request = year_files$source_request[[i]],
+        source_file = year_files$source_file[[i]]
+      ) |>
+        filter(competencia == year_files$competencia[[i]])
+
+      if (nrow(month_data) == 0) {
+        warning("Selected file produced zero rows after normalization: ", year_files$path[[i]], call. = FALSE)
+        next
+      }
+
+      dbWriteTable(
+        conn = con,
+        name = "sisab_year",
+        value = month_data,
+        append = wrote_any
+      )
+      wrote_any <- TRUE
+    }
+    cli_progress_done()
+
+    if (!dbExistsTable(con, "sisab_year")) {
+      warning("No rows exported for year ", year, call. = FALSE)
       next
     }
 
-    dbWriteTable(
-      conn = con,
-      name = "sisab_year",
-      value = month_data,
-      append = wrote_any
+    csv_path <- path(data_output_dir, paste0(data_file_prefix, "_", year, ".csv"))
+    parquet_path <- path(data_output_dir, paste0(data_file_prefix, "_", year, ".parquet"))
+
+    cli_alert_info("Year {.strong {year}}: writing CSV export.")
+    dbExecute(
+      con,
+      paste0(
+        "COPY (SELECT * FROM sisab_year ORDER BY competencia, co_municipio_ibge, tp_codigo, codigo) TO ",
+        sql_quote(csv_path),
+        " (FORMAT CSV, HEADER TRUE)"
+      )
     )
-    wrote_any <- TRUE
+    csv_zip_path <- zip_csv_file(csv_path)
+    cli_alert_info("Year {.strong {year}}: writing Parquet export.")
+    dbExecute(
+      con,
+      paste0(
+        "COPY (SELECT * FROM sisab_year ORDER BY competencia, co_municipio_ibge, tp_codigo, codigo) TO ",
+        sql_quote(parquet_path),
+        " (FORMAT PARQUET)"
+      )
+    )
+    cli_alert_success("Year {.strong {year}} complete: {.path {csv_zip_path}} and {.path {parquet_path}}")
   }
-  cli_progress_done()
-
-  if (!dbExistsTable(con, "sisab_year")) {
-    warning("No rows exported for year ", year, call. = FALSE)
-    next
-  }
-
-  csv_path <- path(data_output_dir, paste0(data_file_prefix, "_", year, ".csv"))
-  parquet_path <- path(data_output_dir, paste0(data_file_prefix, "_", year, ".parquet"))
-
-  cli_alert_info("Year {.strong {year}}: writing CSV export.")
-  dbExecute(
-    con,
-    paste0(
-      "COPY (SELECT * FROM sisab_year ORDER BY competencia, co_municipio_ibge, tp_codigo, codigo) TO ",
-      sql_quote(csv_path),
-      " (FORMAT CSV, HEADER TRUE)"
-    )
-  )
-  csv_zip_path <- zip_csv_file(csv_path)
-  cli_alert_info("Year {.strong {year}}: writing Parquet export.")
-  dbExecute(
-    con,
-    paste0(
-      "COPY (SELECT * FROM sisab_year ORDER BY competencia, co_municipio_ibge, tp_codigo, codigo) TO ",
-      sql_quote(parquet_path),
-      " (FORMAT PARQUET)"
-    )
-  )
-  cli_alert_success("Year {.strong {year}} complete: {.path {csv_zip_path}} and {.path {parquet_path}}")
 }
 
 cli_h2("Done")
