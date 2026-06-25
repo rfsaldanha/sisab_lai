@@ -1,6 +1,6 @@
 # Dicionário de Dados: Contagens SISAB LAI CIAP/CID
 
-Este dicionário descreve os arquivos anuais produzidos pelo script `data_import.R` a partir dos CSVs recebidos via LAI.
+Este dicionário descreve os arquivos anuais produzidos pelo script `data_import.R` a partir dos CSVs e planilhas Excel recebidos via LAI.
 
 ## Arquivos de Saída
 
@@ -31,12 +31,14 @@ A tabela auxiliar de códigos CIAP-2 é gravada no repositório em:
 | `ano_competencia` | inteiro | Ano da competência de produção/referência do SISAB. Derivado de `competencia`. |
 | `competencia` | caractere | Competência de produção/referência no formato `YYYYMM`. Mantida como caractere para preservar a chave de seis dígitos. |
 | `competencia_date` | data | Primeiro dia do mês de competência, derivado de `competencia`. |
-| `co_municipio_ibge` | caractere | Código IBGE do município. Mantido como caractere para evitar perda de zeros à esquerda em usos futuros. |
+| `co_municipio_ibge` | caractere | Código IBGE do município. Mantido como caractere para evitar perda de zeros à esquerda em usos futuros. Fica vazio quando a fonte selecionada é Excel municipal sem essa coluna. |
+| `uf` | caractere | Unidade federativa informada na fonte, quando disponível. Nos CSVs sem essa coluna, fica vazio. |
+| `municipio` | caractere | Nome do município informado na fonte, quando disponível. Nos CSVs sem essa coluna, fica vazio. |
 | `tp_codigo` | caractere | Sistema de classificação do campo `codigo`. Valores esperados: `CID` e `CIAP`. |
 | `codigo` | caractere | Código CID-10 ou CIAP-2, conforme `tp_codigo`. Os códigos CID-10 não são enumerados aqui por serem uma classificação externa amplamente conhecida. A interpretação dos códigos CIAP-2 está resumida abaixo. |
 | `qt_atendimentos` | inteiro | Quantidade de atendimentos/registros para município, competência e código. |
 | `source_request` | caractere | Pasta do pedido LAI selecionado como fonte para a competência. |
-| `source_file` | caractere | Nome do arquivo CSV selecionado como fonte para a competência. |
+| `source_file` | caractere | Nome do arquivo selecionado como fonte para a competência. |
 
 ## Variáveis da Tabela Auxiliar CIAP-2
 
@@ -798,13 +800,14 @@ Fonte usada para esta lista: https://fhir.saude.go.gov.br/r4/reds-go/CodeSystem-
 
 ### `sisab_lai_file_inventory.csv`
 
-Uma linha por CSV encontrado em `data/lai/*/csv/`.
+Uma linha por arquivo CSV encontrado em `data/lai/*/csv/` ou Excel encontrado em `data/lai/*/excel/`.
 
 | Variável | Descrição |
 |---|---|
 | `path` | Caminho completo do arquivo de origem. |
 | `source_request` | Pasta do pedido LAI. |
-| `source_file` | Nome do arquivo CSV. |
+| `source_file` | Nome do arquivo de origem. |
+| `source_format` | Formato do arquivo de origem: `csv` ou `excel`. |
 | `competencia` | Competência inferida a partir do nome do arquivo. |
 | `ano_competencia` | Ano inferido de `competencia`. |
 | `mes_competencia` | Mês inferido de `competencia`. |
@@ -812,8 +815,8 @@ Uma linha por CSV encontrado em `data/lai/*/csv/`.
 | `file_mtime` | Data/hora de modificação do arquivo, usada para invalidação do cache. |
 | `cache_key` | Chave interna do cache, combinando caminho, tamanho e data/hora de modificação. |
 | `metadata_valid` | Indica se metadados de caminho e nome do arquivo puderam ser interpretados. |
-| `header_line` | Linha do cabeçalho CSV detectada após o preâmbulo do SQL*Plus. |
-| `source_schema` | Estrutura detectada no arquivo de origem: colunas explícitas `TP_PCA`/`PCA` ou coluna combinada `CID_CIAP`. |
+| `header_line` | Linha do cabeçalho detectada. Nos CSVs, pode vir após preâmbulo do SQL*Plus; nas planilhas Excel, é a primeira linha. |
+| `source_schema` | Estrutura detectada no arquivo de origem: colunas CSV explícitas `TP_PCA`/`PCA`, coluna CSV combinada `CID_CIAP` ou Excel municipal `excel_municipal_cid_ciap`. |
 | `header_reason` | Motivo de rejeição relacionado ao cabeçalho/esquema, se houver. |
 | `data_rows` | Contagem de linhas de dados usada para escolher o melhor arquivo em casos de sobreposição. |
 | `valid` | Indica se o arquivo passou na validação. |

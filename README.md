@@ -1,12 +1,12 @@
 # SISAB LAI CIAP/CID
 
-Este projeto organiza arquivos CSV do SISAB recebidos via LAI (Lei de Acesso à Informação), resolve sobreposições entre pedidos, padroniza os dados de CID/CIAP e gera arquivos anuais em CSV e Parquet.
+Este projeto organiza arquivos CSV e Excel do SISAB recebidos via LAI (Lei de Acesso à Informação), resolve sobreposições entre pedidos, padroniza os dados de CID/CIAP e gera arquivos anuais em CSV e Parquet.
 
 O fluxo foi pensado para ser reexecutado mensalmente: basta adicionar uma nova resposta LAI em `data/lai/` e rodar novamente o script de importação.
 
 ## Estrutura Esperada
 
-Os CSVs devem estar descompactados em subpastas no formato:
+Os arquivos devem estar em subpastas no formato:
 
 ```text
 data/
@@ -14,9 +14,11 @@ data/
     pedido_*/
       csv/
         *.csv.zip
+      excel/
+        *.xlsx
 ```
 
-O script também aceita CSVs ainda descompactados (`*.csv`) e ZIPs genéricos (`*.zip`) com um CSV dentro, mas o formato recomendado é um ZIP por CSV (`*.csv.zip`). Arquivos ZIP originais na raiz do pedido são ignorados; apenas arquivos dentro de `data/lai/pedido_*/csv/` entram no processamento.
+O script também aceita CSVs ainda descompactados (`*.csv`), ZIPs genéricos (`*.zip`) com um CSV dentro e planilhas Excel (`*.xlsx` ou `*.xls`) dentro de `data/lai/pedido_*/excel/`. Arquivos ZIP originais na raiz do pedido são ignorados; apenas arquivos dentro de `data/lai/pedido_*/csv/` ou `data/lai/pedido_*/excel/` entram no processamento.
 
 ## Como Rodar
 
@@ -48,18 +50,19 @@ O script usa os pacotes:
 - `fs`
 - `purrr`
 - `readr`
+- `readxl`
 - `stringr`
 - `tibble`
 - `R.utils`
 
 ## O Que o Script Faz
 
-1. Localiza CSVs descompactados, compactados como `.csv.zip` ou ZIPs genéricos com CSV dentro em `data/lai/*/csv/`.
+1. Localiza CSVs descompactados, compactados como `.csv.zip`, ZIPs genéricos com CSV dentro em `data/lai/*/csv/` e planilhas Excel em `data/lai/*/excel/`.
 2. Infere a competência (`YYYYMM`) a partir do nome do arquivo.
-3. Detecta o cabeçalho real após eventuais textos de preâmbulo do SQL*Plus.
+3. Detecta o cabeçalho real após eventuais textos de preâmbulo do SQL*Plus nos CSVs e valida o cabeçalho direto nas planilhas.
 4. Valida arquivos vazios, inválidos, sem cabeçalho reconhecido ou sem linhas de dados.
 5. Resolve sobreposições mensais escolhendo, por competência, o arquivo válido com maior número de linhas.
-6. Padroniza os esquemas antigos e novos para uma tabela tidy única.
+6. Padroniza os esquemas CSV antigos, CSV novos e Excel municipal para uma tabela tidy única.
 7. Exporta arquivos anuais em CSV e Parquet.
 8. Exporta relatórios de auditoria e diagnóstico.
 9. Usa cache de inspeção para acelerar execuções futuras.
@@ -103,12 +106,14 @@ Os arquivos anuais têm as seguintes variáveis:
 | `ano_competencia` | Ano da competência. |
 | `competencia` | Competência no formato `YYYYMM`. |
 | `competencia_date` | Primeiro dia do mês de competência. |
-| `co_municipio_ibge` | Código IBGE do município. |
+| `co_municipio_ibge` | Código IBGE do município. Fica vazio quando a fonte selecionada é Excel municipal sem essa coluna. |
+| `uf` | Unidade federativa, preenchida quando a fonte selecionada traz essa coluna. |
+| `municipio` | Nome do município, preenchido quando a fonte selecionada traz essa coluna. |
 | `tp_codigo` | Tipo do código: `CID` ou `CIAP`. |
 | `codigo` | Código CID-10 ou CIAP-2. |
 | `qt_atendimentos` | Quantidade de atendimentos. |
 | `source_request` | Pasta do pedido LAI selecionado. |
-| `source_file` | Arquivo CSV selecionado. |
+| `source_file` | Arquivo selecionado. |
 
 No Parquet, `qt_atendimentos` é exportado como inteiro e `competencia_date` como data.
 
@@ -129,7 +134,7 @@ dados_com_ciap <- dados |>
 
 ## Relatórios
 
-- `sisab_lai_file_inventory.csv`: inventário completo dos CSVs encontrados, incluindo validação, cache, esquema detectado e status de seleção.
+- `sisab_lai_file_inventory.csv`: inventário completo dos arquivos CSV e Excel encontrados, incluindo validação, cache, esquema detectado e status de seleção.
 - `sisab_lai_selected_files.csv`: arquivos mensais escolhidos após resolver sobreposições.
 - `sisab_lai_invalid_files.csv`: arquivos rejeitados e motivo da rejeição.
 - `sisab_lai_missing_months.csv`: competências sem arquivo válido dentro do intervalo observado.
@@ -147,12 +152,12 @@ Os demais arquivos válidos aparecem como `superseded` nos relatórios.
 ## Fluxo Mensal
 
 1. Crie uma nova pasta para o pedido LAI em `data/lai/`.
-2. Coloque os CSVs dentro de `data/lai/pedido_*/csv/`, preferencialmente compactados como `arquivo.csv.zip`; arquivos `arquivo.zip` com CSV interno também são aceitos.
+2. Coloque os CSVs dentro de `data/lai/pedido_*/csv/`, preferencialmente compactados como `arquivo.csv.zip`, ou as planilhas dentro de `data/lai/pedido_*/excel/`; arquivos `arquivo.zip` com CSV interno também são aceitos.
 3. Rode `Rscript data_import.R`.
 4. Revise os relatórios em `data/export/reports/`.
 5. Use os arquivos anuais em `data/export/data/`.
 
-Como os CSVs LAI são tratados como estáticos, o cache evita recalcular cabeçalhos e contagens de linhas de arquivos já vistos. Se um arquivo for substituído, o caminho, tamanho ou data de modificação mudam e o cache é invalidado para aquele arquivo.
+Como os arquivos LAI são tratados como estáticos, o cache evita recalcular cabeçalhos e contagens de linhas de arquivos já vistos. Se um arquivo for substituído, o caminho, tamanho ou data de modificação mudam e o cache é invalidado para aquele arquivo.
 
 ## Observações
 

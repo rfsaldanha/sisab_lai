@@ -7,6 +7,7 @@ suppressPackageStartupMessages({
   library(fs)
   library(purrr)
   library(readr)
+  library(readxl)
   library(stringr)
   library(tibble)
 })
@@ -53,6 +54,15 @@ expected_new <- c(
   "QT_ATENDIMENTOS"
 )
 
+expected_excel_municipal <- c(
+  "COMPETENCIA",
+  "UF",
+  "MUNICIPIO",
+  "TP_CLASSIFICACAO",
+  "CID_CIAP",
+  "QTD_ATENDIMENTOS"
+)
+
 data_line_pattern <- "^\\s*\"?\\d{4}\"?\\s*,\\s*\"?\\d{6}\"?\\s*,"
 
 # DuckDB COPY expects single-quoted paths. Escape any apostrophes defensively.
@@ -61,11 +71,24 @@ sql_quote <- function(x) {
 }
 
 is_zip_path <- function(path) {
-  str_detect(str_to_lower(as.character(path)), "[.]zip$")
+  str_ends(str_to_lower(as.character(path)), fixed(".zip"))
+}
+
+is_excel_path <- function(path) {
+  lower_path <- str_to_lower(as.character(path))
+  str_ends(lower_path, fixed(".xlsx")) | str_ends(lower_path, fixed(".xls"))
 }
 
 csv_name_from_path <- function(path) {
-  str_remove(path_file(as.character(path)), "[.]zip$")
+  str_remove(path_file(as.character(path)), fixed(".zip"))
+}
+
+source_file_from_path <- function(path) {
+  if_else(
+    is_zip_path(path),
+    csv_name_from_path(path),
+    path_file(as.character(path))
+  )
 }
 
 # Source CSVs may be stored as .csv.zip to save disk space. When a script step
@@ -125,6 +148,35 @@ zip_csv_file <- function(csv_path) {
 # SISAB data files are preceded by SQL*Plus command output. This finds the real
 # CSV header and identifies which LAI schema the file uses.
 detect_header <- function(path) {
+  if (is_excel_path(path)) {
+    excel_header <- tryCatch(
+      names(read_excel(path, n_max = 0, .name_repair = "minimal")),
+      error = function(e) character()
+    )
+
+    if (length(excel_header) == 0) {
+      return(list(
+        header_line = NA_integer_,
+        schema = NA_character_,
+        reason = "empty_or_unreadable"
+      ))
+    }
+
+    if (!all(expected_excel_municipal %in% excel_header)) {
+      return(list(
+        header_line = 1L,
+        schema = NA_character_,
+        reason = "unsupported_schema"
+      ))
+    }
+
+    return(list(
+      header_line = 1L,
+      schema = "excel_municipal_cid_ciap",
+      reason = NA_character_
+    ))
+  }
+
   csv_path <- materialize_csv(path)
   preview <- tryCatch(
     readLines(csv_path, n = 100, warn = FALSE, encoding = "UTF-8"),
@@ -174,6 +226,13 @@ detect_header <- function(path) {
 # Fast path: count all lines and subtract the SQL*Plus preamble/header/footer.
 # Fallback: scan data-looking rows if fast line counting fails for any file.
 count_data_rows <- function(path, header_line) {
+  if (is_excel_path(path)) {
+    return(tryCatch(
+      as.integer(nrow(read_excel(path, col_types = "text"))),
+      error = function(e) NA_integer_
+    ))
+  }
+
   csv_path <- materialize_csv(path)
   total_lines <- tryCatch(
     R.utils::countLines(csv_path),
@@ -212,15 +271,23 @@ count_data_rows <- function(path, header_line) {
 # final tidy export shape. Provenance stays in the data, but source_schema is
 # only kept in the reports/selection metadata.
 read_sisab_file <- function(path, header_line, schema, source_request, source_file) {
-  csv_path <- materialize_csv(path)
-  raw <- suppressWarnings(read_csv(
-    file = csv_path,
-    skip = header_line - 1L,
-    col_types = cols(.default = col_character()),
-    show_col_types = FALSE,
-    progress = FALSE,
-    name_repair = "minimal"
-  ))
+  if (schema == "excel_municipal_cid_ciap") {
+    raw <- read_excel(
+      path = path,
+      col_types = "text",
+      .name_repair = "minimal"
+    )
+  } else {
+    csv_path <- materialize_csv(path)
+    raw <- suppressWarnings(read_csv(
+      file = csv_path,
+      skip = header_line - 1L,
+      col_types = cols(.default = col_character()),
+      show_col_types = FALSE,
+      progress = FALSE,
+      name_repair = "minimal"
+    ))
+  }
 
   if (schema == "explicit_tp_pca") {
     missing_cols <- setdiff(expected_old, names(raw))
@@ -240,6 +307,8 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
         ano_competencia = parse_integer(NU_ANO_COMPETENCIA),
         competencia = str_pad(NU_COMPETENCIA, width = 6, side = "left", pad = "0"),
         co_municipio_ibge = CO_MUNICIPIO_IBGE,
+        uf = NA_character_,
+        municipio = NA_character_,
         tp_codigo = TP_PCA,
         codigo = PCA,
         qt_atendimentos = parse_integer(QT_ATENDIMENTOS),
@@ -268,6 +337,8 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
         ano_competencia = parse_integer(NU_ANO_COMPETENCIA),
         competencia = str_pad(NU_COMPETENCIA, width = 6, side = "left", pad = "0"),
         co_municipio_ibge = CO_MUNICIPIO_IBGE,
+        uf = NA_character_,
+        municipio = NA_character_,
         tp_codigo = case_when(
           cid_ciap_suffix == "1" ~ "CID",
           cid_ciap_suffix == "4" ~ "CIAP",
@@ -275,6 +346,36 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
         ),
         codigo = cid_ciap_value,
         qt_atendimentos = parse_integer(QT_ATENDIMENTOS),
+        source_schema = schema
+      )
+  } else if (schema == "excel_municipal_cid_ciap") {
+    missing_cols <- setdiff(expected_excel_municipal, names(raw))
+    if (length(missing_cols) > 0) {
+      stop("missing expected columns: ", paste(missing_cols, collapse = ", "))
+    }
+
+    raw <- raw |>
+      filter(str_detect(COMPETENCIA, "^\\d{6}"))
+
+    out <- raw |>
+      mutate(
+        cid_ciap_suffix = str_match(CID_CIAP, "^(.*)-([^-]+)")[, 3],
+        cid_ciap_value = str_match(CID_CIAP, "^(.*)-([^-]+)")[, 2]
+      ) |>
+      transmute(
+        ano_competencia = parse_integer(substr(COMPETENCIA, 1, 4)),
+        competencia = str_pad(COMPETENCIA, width = 6, side = "left", pad = "0"),
+        co_municipio_ibge = NA_character_,
+        uf = UF,
+        municipio = MUNICIPIO,
+        tp_codigo = case_when(
+          TP_CLASSIFICACAO %in% c("CID", "CIAP") ~ TP_CLASSIFICACAO,
+          cid_ciap_suffix == "1" ~ "CID",
+          cid_ciap_suffix == "4" ~ "CIAP",
+          TRUE ~ NA_character_
+        ),
+        codigo = coalesce(cid_ciap_value, CID_CIAP),
+        qt_atendimentos = parse_integer(QTD_ATENDIMENTOS),
         source_schema = schema
       )
   } else {
@@ -294,6 +395,8 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
       competencia,
       competencia_date,
       co_municipio_ibge,
+      uf,
+      municipio,
       tp_codigo,
       codigo,
       qt_atendimentos,
@@ -302,33 +405,34 @@ read_sisab_file <- function(path, header_line, schema, source_request, source_fi
     )
 }
 
-# Discover the current LAI CSV universe. New monthly requests can be added as
-# new data/lai/pedido_*/csv folders without changing the script. CSVs can be
-# stored either plain, as .csv.zip archives, or as generic .zip archives with a
-# CSV member.
-csv_files <- dir_ls(
+# Discover the current LAI file universe. New monthly requests can be added as
+# new data/lai/pedido_*/csv or data/lai/pedido_*/excel folders without
+# changing the script. CSVs can be stored either plain, as .csv.zip archives, or
+# as generic .zip archives with a CSV member. Excel files can be .xlsx or .xls.
+source_files <- dir_ls(
   path = input_dir,
   recurse = TRUE,
   type = "file",
-  regexp = "/csv/.*([.]csv([.]zip)?|[.]zip)$"
+  regexp = "/(csv|excel)/.*([.]csv([.]zip)?|[.]zip|[.]xlsx?|[.]xls)"
 )
 
-if (length(csv_files) == 0) {
-  stop("No CSV files found under ", input_dir, call. = FALSE)
+if (length(source_files) == 0) {
+  stop("No CSV or Excel files found under ", input_dir, call. = FALSE)
 }
 
 cli_h1("SISAB LAI import")
 cli_alert_info("Input folder: {.path {input_dir}}")
 cli_alert_info("Data output folder: {.path {data_output_dir}}")
 cli_alert_info("Reports output folder: {.path {reports_output_dir}}")
-cli_alert_info("Found {.strong {length(csv_files)}} CSV files.")
+cli_alert_info("Found {.strong {length(source_files)}} source files.")
 
 # Build the file-level inventory used for validation, overlap resolution, and
 # cache matching. The cache key changes if the file is replaced or edited.
-inventory <- tibble(path = as.character(csv_files)) |>
+inventory <- tibble(path = as.character(source_files)) |>
   mutate(
     source_request = str_extract(path, "pedido_[^/]+"),
-    source_file = csv_name_from_path(path),
+    source_file = source_file_from_path(path),
+    source_format = if_else(is_excel_path(path), "excel", "csv"),
     competencia = str_extract(source_file, "\\d{6}"),
     ano_competencia = parse_integer(substr(competencia, 1, 4)),
     mes_competencia = parse_integer(substr(competencia, 5, 6)),
@@ -355,6 +459,7 @@ file_cache <- if (file_exists(file_cache_path)) {
     cache_key = character(),
     source_request = character(),
     source_file = character(),
+    source_format = character(),
     competencia = character(),
     ano_competencia = integer(),
     mes_competencia = integer(),
@@ -396,7 +501,7 @@ cli_alert_info("Inspecting {.strong {length(cache_misses)}} new or changed files
 # Only cache misses need file inspection. This is the slow part on first run and
 # should be small on later monthly updates.
 if (length(cache_misses) > 0) {
-  cli_alert_info("Detecting CSV headers after SQL*Plus preamble text.")
+  cli_alert_info("Detecting source headers.")
 }
 header_info <- vector("list", length(cache_misses))
 for (j in cli_progress_along(seq_along(cache_misses), "Detecting headers")) {
@@ -443,6 +548,7 @@ cache_columns <- c(
   "cache_key",
   "source_request",
   "source_file",
+  "source_format",
   "competencia",
   "ano_competencia",
   "mes_competencia",
@@ -496,6 +602,7 @@ selected_paths <- selected_files |>
     path,
     source_request,
     source_file,
+    source_format,
     source_schema,
     header_line,
     data_rows,
